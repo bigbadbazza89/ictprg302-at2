@@ -1,3 +1,5 @@
+"""This program runs an interactive game similar to that of Wordle."""
+
 print("\nHi and Welcome to Word Guess!\n\n"
       "The aim of this game is to correctly guess a secret 5-letter word!\n\n"
       "You will have 6 attempts to achieve success!\n")
@@ -10,12 +12,15 @@ help_message = ("\nA 2 indicates a letter is in the correct postion!\n"
 
 print(help_message)
 
+print(f"Debug: {help_message}")
+
 import random
 
 with open("all_words.txt", "r") as all_words:
     all_lines = []
     for a_word in all_words:
         all_lines.append(a_word.strip())
+# print(f"All Words\nThe first five words: {all_lines[:5]}\n The last five words: {all_lines[-5:]}\n")
 
 with open("target_words.txt", "r") as target_words:
     target_lines = []
@@ -23,8 +28,9 @@ with open("target_words.txt", "r") as target_words:
         target_lines.append(t_word.strip())
     target_word = random.choice(target_lines)
 target = target_word
+# print(f"Target Words\nThe first five words: {target_lines[:5]}\n The last five words: {target_lines[-5:]}")
 
-
+print(f"Debug Test Target Word: {target}\n")
 
 def score_guess(guess, target):
     """This function returns a result with clues, based on how close to the target word, the guess word is.
@@ -47,7 +53,6 @@ def score_guess(guess, target):
             score[letter] = 0
     return score
 
-
 tries_remaining = 6
 while tries_remaining > 0:
     attempt = input("Your guess please: ")
@@ -56,7 +61,7 @@ while tries_remaining > 0:
         guess = attempt
         print(score_guess(guess, target))
         if score_guess(guess, target) == [2, 2, 2, 2, 2]:
-            print("You Guessed The Secret Word!")
+            print("\nYou Guessed The Secret Word!")
             break
         tries_remaining -= 1
         print(f"\nYou have {tries_remaining} tries remaining!")
@@ -71,9 +76,25 @@ while tries_remaining > 0:
 if tries_remaining == 0:
     print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!")
 
-# print(len(all_lines[0]))
+# print(len(all_lines[0])) #Debug to check the length of a word in all_words.txt
 
 # Barrie Seldon, 20146589, 06/04/25
+
+# guess = "world"
+# print("Guess> ", guess)
+# target = "world"
+# print("Target> ", target)
+#
+# print("Outcome> ", score_guess("world", "world"))
+# print("Expected> ", [2, 2, 2, 2, 2])
+
+# guess = "world"
+# print("Guess> ", guess)
+# target = "hello"
+# print("Target> ", target)
+#
+# print("Outcome> ", score_guess("world", "hello"))
+# print("Expected> ", [0, 0, 0, 0, 0])
 
 # guess = "world"
 # print("Guess> ", guess)
