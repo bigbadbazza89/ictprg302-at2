@@ -12,7 +12,7 @@ help_message = ("\nA 2 indicates a letter is in the correct postion!\n"
 
 print(help_message)
 
-print(f"Debug: {help_message}")
+# print(f"Debug: {help_message}")
 
 import random
 
@@ -30,7 +30,7 @@ with open("target_words.txt", "r") as target_words:
 target = target_word
 # print(f"Target Words\nThe first five words: {target_lines[:5]}\n The last five words: {target_lines[-5:]}")
 
-print(f"Debug Test Target Word: {target}\n")
+# print(f"Debug Test Target Word: {target}\n")
 
 def score_guess(guess, target):
     """This function returns a result with clues, based on how close to the target word, the guess word is.
