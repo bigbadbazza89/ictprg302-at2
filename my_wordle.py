@@ -1,6 +1,14 @@
-print("Hi and Welcome to Wordle!\n"
-      "The aim of this game is to correctly guess a secret 5-letter word!\n"
-      "You will have 6 attempts remaining to achieve success!\n")
+print("\nHi and Welcome to Word Guess!\n\n"
+      "The aim of this game is to correctly guess a secret 5-letter word!\n\n"
+      "You will have 6 attempts to achieve success!\n")
+
+print("For a reminder of the instructions on how to play, please type 'help' in the prompt!")
+
+help_message = ("\nA 2 indicates a letter is in the correct postion!\n"
+                "A 1 indicates a letter is in the word but in the wrong position!\n"
+                "A 0 indicates a letter is not in the word at all!\n")
+
+print(help_message)
 
 import random
 
@@ -15,6 +23,8 @@ with open("target_words.txt", "r") as target_words:
         target_lines.append(t_word.strip())
     target_word = random.choice(target_lines)
 target = target_word
+
+
 
 def score_guess(guess, target):
     """This function returns a result with clues, based on how close to the target word, the guess word is.
@@ -37,6 +47,7 @@ def score_guess(guess, target):
             score[letter] = 0
     return score
 
+
 tries_remaining = 6
 while tries_remaining > 0:
     attempt = input("Your guess please: ")
@@ -44,22 +55,33 @@ while tries_remaining > 0:
     if attempt in all_lines:
         guess = attempt
         print(score_guess(guess, target))
+        if score_guess(guess, target) == [2, 2, 2, 2, 2]:
+            print("You Guessed The Secret Word!")
+            break
         tries_remaining -= 1
-        print(f"You have {tries_remaining} tries remaining")
+        print(f"\nYou have {tries_remaining} tries remaining!")
+    elif attempt == "help":
+        print(help_message)
+    elif len(attempt) != len(all_lines[0]):
+        print("Word is wrong size!")
     else:
-        print("Not a suitable word!")
+        print("Not a valid word!")
 
 
 if tries_remaining == 0:
-    print("\nBetter Luck Next Time!")
+    print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!")
 
+# print(len(all_lines[0]))
 
 # Barrie Seldon, 20146589, 06/04/25
 
-# guess = "onion"
+# guess = "world"
 # print("Guess> ", guess)
-# target = "blood"
+# target = "hello"
 # print("Target> ", target)
+#
+# print("Outcome> ", score_guess("world", "hello"))
+# print("Expected> ", [0, 1, 0, 2, 0])
 
 
 
