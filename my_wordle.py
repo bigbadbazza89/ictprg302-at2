@@ -6,7 +6,7 @@ print("\nHi and Welcome to Word Guess!\n\n"
 
 print("For a reminder of the instructions on how to play, please type 'help' in the prompt!")
 
-help_message = ("\nA 2 indicates a letter is in the correct postion!\n"
+help_message = ("\nA 2 indicates a letter is in the correct position!\n"
                 "A 1 indicates a letter is in the word but in the wrong position!\n"
                 "A 0 indicates a letter is not in the word at all!\n")
 
