@@ -63,6 +63,7 @@ tries_remaining = 6
 while tries_remaining > 0:
     attempt = input("Your guess please: ")
     attempt = attempt.lower()
+    attempt = attempt.strip()
     if attempt in all_word_list:
         guess = attempt
         print(score_guess(guess, target))
