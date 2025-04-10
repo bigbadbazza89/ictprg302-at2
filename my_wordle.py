@@ -65,7 +65,7 @@ while tries_remaining > 0:
         if score_guess(guess, target) == [2, 2, 2, 2, 2]:
             print("\nYou Guessed The Secret Word!\n")
             print("Thanks For Playing!")
-            break
+            break # program ends here
         tries_remaining -= 1
         print(f"\nYou have {tries_remaining} tries remaining!")
     elif attempt == "help":
@@ -78,7 +78,7 @@ while tries_remaining > 0:
 
 if tries_remaining == 0:
     print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!\n")
-    print("Thanks For Playing!")
+    print("Thanks For Playing!") # program ends here
 
 # print(len(all_lines[0])) #Debug to check the length of a word in all_words.txt
 
