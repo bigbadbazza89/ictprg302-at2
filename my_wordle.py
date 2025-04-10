@@ -3,7 +3,7 @@
 print("\nHi and Welcome to Word Guess!\n\n"
       "The aim of this game is to correctly guess a secret 5-letter word!\n\n"
       "You will have 6 attempts to achieve success!\n\n"
-      "Good luck!\n")
+      "Good Luck!\n")
 
 print("For a reminder of the instructions on how to play, please type 'help' in the prompt at any time!\n")
 
