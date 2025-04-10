@@ -2,11 +2,13 @@
 
 print("\nHi and Welcome to Word Guess!\n\n"
       "The aim of this game is to correctly guess a secret 5-letter word!\n\n"
-      "You will have 6 attempts to achieve success!\n")
+      "You will have 6 attempts to achieve success!\n\n"
+      "Good luck!\n")
 
-print("For a reminder of the instructions on how to play, please type 'help' in the prompt!")
+print("For a reminder of the instructions on how to play, please type 'help' in the prompt at any time!\n")
 
-help_message = ("\nA 2 indicates a letter is in the correct position!\n"
+help_message = ("Instructions:\n"
+                "A 2 indicates a letter is in the correct position!\n"
                 "A 1 indicates a letter is in the word but in the wrong position!\n"
                 "A 0 indicates a letter is not in the word at all!\n")
 
@@ -61,7 +63,8 @@ while tries_remaining > 0:
         guess = attempt
         print(score_guess(guess, target))
         if score_guess(guess, target) == [2, 2, 2, 2, 2]:
-            print("\nYou Guessed The Secret Word!")
+            print("\nYou Guessed The Secret Word!\n")
+            print("Thanks For Playing!")
             break
         tries_remaining -= 1
         print(f"\nYou have {tries_remaining} tries remaining!")
@@ -74,7 +77,8 @@ while tries_remaining > 0:
 
 
 if tries_remaining == 0:
-    print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!")
+    print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!\n")
+    print("Thanks For Playing!")
 
 # print(len(all_lines[0])) #Debug to check the length of a word in all_words.txt
 
