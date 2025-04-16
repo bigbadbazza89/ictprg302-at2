@@ -28,7 +28,7 @@ introduction = ("\nHi and Welcome to Word Guess!\n\n"
       "You will have 6 attempts to achieve success!\n\n"
       "Good Luck!\n")
 
-reminder = ("For a reminder of the instructions on how to play, please type 'help' in the prompt at any time!\n")
+reminder = "For a reminder of the instructions on how to play, please type 'help' in the prompt at any time!\n"
 
 help_message = ("Instructions:\n"
                 "A 2 indicates a letter is in the correct position!\n"
@@ -57,7 +57,7 @@ with open("target_words.txt", "r") as target_words:
 target = target_word
 # print(f"Target Words\nThe first five words: {target_lines[:5]}\n The last five words: {target_lines[-5:]}")
 
-print(f"Debug Test Target Word: {target}\n")
+#print(f"Debug Test Target Word: {target}\n")
 
 tries_remaining = 6
 while tries_remaining > 0:
