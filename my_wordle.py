@@ -63,22 +63,18 @@ print(f"Debug Test Target Word: {target}\n") # Debug to know target word
 
 tries_remaining = 6
 while tries_remaining > 0:
-    attempt = input("Your guess please: ")
-    attempt = attempt.lower()
+    attempt = input("Your guess please: ").lower().strip()
     # print(len(target)) # checking length of target word
     # print(len(attempt)) # checking length of attempt
-    attempt = attempt.strip()
     if attempt in all_word_list:
         guess = attempt
         print(score_guess(guess, target))
         if score_guess(guess, target) == [2, 2, 2, 2, 2]:
             print("\nYou Guessed The Secret Word!\n")
-            retry = input("Would You Like To Play Again? (Y/N)? ")
-            retry = retry.lower()
+            retry = input("Would You Like To Play Again? (Y/N)? ").lower()
             if retry == "n":
                 print("Thanks For Playing!")
             break # program ends here
-
         tries_remaining -= 1
         print(f"\nYou have {tries_remaining} tries remaining!")
     elif attempt == "help":
@@ -91,7 +87,10 @@ while tries_remaining > 0:
 
 if tries_remaining == 0:
     print(f"\n\nThe Secret Word Is {target.upper()}!\n\nBetter Luck Next Time!\n")
-    print("Thanks For Playing!") # program ends here
+    retry = input("Would You Like To Play Again? (Y/N)? ").lower()
+    if retry == "n":
+        print("Thanks For Playing!") # program ends here
+
 
 # print(len(all_lines[0])) #Debug to check the length of a word in all_words.txt
 
