@@ -55,28 +55,37 @@ with open("target_words.txt", "r") as target_words:
         target_word_list.append(objective.strip())
     target_word = random.choice(target_word_list)
 target = target_word
+
+# target = "guava" # Test for non-random target word
 # print(f"Target Words\nThe first five words: {target_lines[:5]}\n The last five words: {target_lines[-5:]}")
 
-#print(f"Debug Test Target Word: {target}\n")
+print(f"Debug Test Target Word: {target}\n") # Debug to know target word
 
 tries_remaining = 6
 while tries_remaining > 0:
     attempt = input("Your guess please: ")
     attempt = attempt.lower()
+    # print(len(target)) # checking length of target word
+    # print(len(attempt)) # checking length of attempt
     attempt = attempt.strip()
     if attempt in all_word_list:
         guess = attempt
         print(score_guess(guess, target))
         if score_guess(guess, target) == [2, 2, 2, 2, 2]:
             print("\nYou Guessed The Secret Word!\n")
-            print("Thanks For Playing!")
+            retry = input("Would You Like To Play Again? (Y/N)? ")
+            retry = retry.lower()
+            if retry == "n":
+                print("Thanks For Playing!")
             break # program ends here
+
         tries_remaining -= 1
         print(f"\nYou have {tries_remaining} tries remaining!")
     elif attempt == "help":
         print(help_message)
     elif len(attempt) != len(all_word_list[0]):
         print("Word is wrong size!")
+        # print("Expected> Word is wrong size!")
     else:
         print("Not a valid word!")
 
@@ -112,7 +121,13 @@ if tries_remaining == 0:
 # print("Outcome> ", score_guess("world", "hello"))
 # print("Expected> ", [0, 1, 0, 2, 0])
 
-
+# guess = "valor"
+# print("Guess> ", guess)
+# target = "guava"
+# print("Target> ", target)
+#
+# print("Outcome> ", score_guess("valor", "guava"))
+# print("Expected> ", [1, 1, 0, 0, 0])
 
 
 
