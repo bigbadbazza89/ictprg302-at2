@@ -2,9 +2,6 @@
 
 import random
 
-with open("my_score.txt", "w") as score_file:
-    score_file.write("Score Average:\n")
-
 def score_guess(guess, target):
     """This function returns a result with clues, based on how close to the target word, the guess word is.
     Clues include:
@@ -24,7 +21,15 @@ def score_guess(guess, target):
             score[i] = 1
         else:
             score[i] = 0
-    return score
+
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
+
+    colours = {0: RED, 1: YELLOW, 2: GREEN}
+    score_colour = " ".join(f"{colours[s]}{s}{RESET}" for s in score)
+    return score_colour
 
 def word_guess_game():
     """Word Guess Game Logic"""
@@ -74,7 +79,7 @@ def word_guess_game():
         if attempt in all_word_list:
             guess = attempt
             print(score_guess(guess, target))
-            if score_guess(guess, target) == [2, 2, 2, 2, 2]:
+            if score_guess(guess, target) == " ".join("\033[92m{}\033[0m".format(num) for num in [2, 2, 2, 2, 2]):
                 result = str(7 - tries_remaining)
                 with open("my_score.txt", "a") as score_append:
                     score_append.write(f"{result}\n")
