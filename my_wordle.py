@@ -82,7 +82,7 @@ def word_guess_game():
                     next(score_append)
                     scores = [int(line.strip()) for line in score_append.readlines()]
                     average = sum(scores) / len(scores)
-                print(f"\nYou Guessed The Secret Word In {result} Attempt(s)! Your Average Is {average: .2f}!\n")
+                print(f"\nYou Guessed The Secret Word In {result} Attempt(s)! Your Average Is {average: .2f} Attempts!\n")
                 retry = input("Would You Like To Play Again? (Y/N)? ").lower()
                 if retry == "n":
                     print("\nThanks For Playing!")
