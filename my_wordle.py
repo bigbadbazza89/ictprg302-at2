@@ -76,14 +76,12 @@ def word_guess_game():
             print(score_guess(guess, target))
             if score_guess(guess, target) == [2, 2, 2, 2, 2]:
                 result = str(7 - tries_remaining)
-
                 with open("my_score.txt", "a") as score_append:
                     score_append.write(f"{result}\n")
                 with open("my_score.txt", "r") as score_append:
                     next(score_append)
                     scores = [int(line.strip()) for line in score_append.readlines()]
                     average = sum(scores) / len(scores)
-
                 print(f"\nYou Guessed The Secret Word In {result} Attempt(s)! Your Average Is {average: .2f}!\n")
                 retry = input("Would You Like To Play Again? (Y/N)? ").lower()
                 if retry == "n":
@@ -91,7 +89,7 @@ def word_guess_game():
                     break  # program ends here
                 elif retry == "y":
                     word_guess_game()
-                    break
+                    break  # program ends here
                 else:
                     print("Invalid Input!")
             tries_remaining -= 1
