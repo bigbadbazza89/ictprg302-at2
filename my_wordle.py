@@ -108,6 +108,8 @@ def word_guess_game():
         if retry == "n":
             print("Thanks For Playing!") # program ends here
 
+with open("my_score.txt", "w") as score_file:
+    score_file.write("Score Average:\n")
 
 word_guess_game()
 
