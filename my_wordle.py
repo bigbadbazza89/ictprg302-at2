@@ -69,7 +69,7 @@ def word_guess_game():
     # target = "guava" # Test for non-random target word
     # print(f"Target Words\nThe first five words: {target_lines[:5]}\n The last five words: {target_lines[-5:]}")
 
-    print(f"Debug Test Target Word: {target}\n") # Debug to know target word
+    # print(f"Debug Test Target Word: {target}\n") # Debug to know target word
 
     tries_remaining = 6
     while tries_remaining > 0:
@@ -116,7 +116,7 @@ def word_guess_game():
 with open("my_score.txt", "w") as score_file:
     score_file.write("Score Average:\n")
 
-word_guess_game()
+word_guess_game() # runs the game
 
 
     # print(len(all_lines[0])) #Debug to check the length of a word in all_words.txt
